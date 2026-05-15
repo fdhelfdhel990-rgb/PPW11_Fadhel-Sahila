@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            background: #f0f2f5;    
+        }
+        .box{
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            width: 300px;
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid#ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 10px;
+        }
+        button{
+            padding: 10px;
+            cursor:pointer ;
+            border: none;
+            border-radius: 5px;
+            background: rgb(71, 168, 242);
+            color: white;
+            font-weight: bold;
+        }
+        button:hover{
+            background: blue;
+        }
+        #output{
+            margin-top: 20px;
+            padding: 15px;
+            border-top: 2px solid#eee;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Kalkulator</h3>
+        <input type="number" id="bil1" placeholder="Bilangan pertama">
+        <input type="number" id="bil2" placeholder="Bilangan Kedua">
+
+        <div class="btn">
+            <button onclick="tambah()">Tambah</button>
+            <button onclick="kurang()">Kurang</button>
+            <button onclick="kali()">Kali</button>
+            <button onclick="bagi()">Bagi</button>
+        </div>
+        <div id="output">Hasil: -</div>
+    </div>
+    <script>
+        function ambilNIlai(){
+            const n1=document.getElementById('bil1').value;
+            const n2=document.getElementById('bil2').value;
+
+            if (n1===""|| n2 ===""){
+                alert('Harap masukkan kedua bilangan!');
+                return null;
+            }
+            return{a:parseFloat(n1),b:parseFloat(n2)}
+        }
+        function tampilkan(hasil){
+            document.getElementById('output').innerHTML='Hasil: '+hasil;
+        }
+
+        function tambah(){
+            const data =ambilNIlai();
+            if(data) tampilkan(data.a+data.b);
+        }
+
+        function kurang(){
+            const data=ambilNIlai();
+            if(data) tampilkan(data.a-data.b);
+        }
+
+        function kali(){
+            const data=ambilNIlai();
+            if(data) tampilkan(data.a*data.b);
+        }
+
+        function bagi(){
+            const data=ambilNIlai;
+            if (data) tampilkan(data.a/data.b);
+        }
+    </script>
+</body>
+</html>
